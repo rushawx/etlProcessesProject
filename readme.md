@@ -21,20 +21,21 @@ cp .env.example .env
 
 ## Start Services
 To start the services, run the following command:
-
-## Initialize Database
-To initialize the PostgreSQL database, run the following command:
+```sh
+docker-compose -f docker-compose-db.yaml up -d
+docker-compose -f docker-compose-af.yaml up -d
+```
 
 ## Airflow DAGs
 
 ### Mongo Data Generator
-The mongo_data_generator.py DAG generates fake user session data and inserts it into MongoDB.
+The `mongo_data_generator.py` DAG generates fake user session data and inserts it into MongoDB.
 
 ### Mongo to Postgres Data Replicator
-The mongo_to_postgres_data_replicator.py DAG replicates the data from MongoDB to PostgreSQL.
+The `mongo_to_postgres_data_replicator.py` DAG replicates the data from MongoDB to PostgreSQL.
 
 ### Postgres Data Mart Creator
-The postgres_data_mart_creator.py DAG creates data marts in PostgreSQL.
+The `postgres_data_mart_creator.py` DAG creates data marts in PostgreSQL.
 
 ## Connections
-The connections to MongoDB and PostgreSQL are defined in the airflow/data/connections.yaml file.
+The connections to MongoDB and PostgreSQL are defined in the `airflow/data/connections.yaml` file.
